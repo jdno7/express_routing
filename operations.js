@@ -95,9 +95,22 @@ function mode (params) {
     return response
 }
 
+function validateNums(params){
+    let temp = params.split(',')
+    for (c of temp){
+           
+        if ( !parseInt(c) ){
+            return new Error (
+                `${c} is not a number`
+            )
+        }
+    }
+}
+
 
 module.exports = {
     mean: mean,
     median:median,
-    mode: mode
+    mode: mode,
+    validateNums: validateNums
 }
